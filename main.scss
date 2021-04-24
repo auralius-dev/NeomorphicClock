@@ -1,8 +1,11 @@
 $color-primary: #2b1b1b;
 $noise: url("https://media.discordapp.net/attachments/696322098305564682/835021670498435092/noise5.png");
+//@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap'); Is nice but isn't monospace.
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@300&display=swap');
 
 p {
-	font-family: Arial, sans-serif;
+	font-family: "Roboto", sans-serif;
+	line-height: 1.2;
 	color: lighten($color-primary, 1%);
 	margin: 0;
 	text-shadow:
@@ -10,12 +13,57 @@ p {
 		1px 1px 1px lighten($color-primary, 5%);
 }
 
-p, #slider {
+p, #slider, #timeBox::before, #timeBox::after {
 	-webkit-filter: blur(0.5px);
 	-moz-filter: blur(0.5px);
 	-o-filter: blur(0.5px);
 	-ms-filter: blur(0.5px);
 	filter: blur(0.5px);
+}
+
+#switchLabel {
+	user-select: none;
+}
+
+#switch {
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+}
+
+#switchIcon {
+	position: absolute;
+    width: 2.5em;
+    height: 2.5em;
+	bottom: 3px;
+	right: 0;
+    background: lighten($color-primary, 2%);
+    line-height: 40px;
+    text-align: center;
+    margin: 0 4px;
+    font-size: 16px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow:
+		-1px -1px 3px rgba(255, 255, 255, 0.1),
+        2px 2px 6px rgba(0, 0, 0, 0.8);
+	-webkit-transition: .1s linear 0s;
+	-moz-transition: .1s linear 0s;
+	-o-transition: .1s linear 0s;
+	transition: .1s linear 0s
+}
+
+#switchIcon:active, #switch:checked ~ #switchIcon {
+	background: lighten($color-primary, 1%);
+    box-shadow:
+		-1px -1px 3px rgba(255, 255, 255, 0.1),
+		2px 2px 6px rgba(0, 0, 0, 0.8),
+		inset -1px -1px 3px rgba(255, 255, 255, 0.1),
+		inset 2px 2px 6px rgba(0, 0, 0, 1);
+}
+
+#switch:checked #clock {
+	opacity: 0%;
 }
 
 #customText {
@@ -36,9 +84,18 @@ p, #slider {
 	text-decoration: underline;
 	text-decoration-thickness: 0.15em;
 }
-
+/*
 html {
-	filter: hue-rotate(100deg);
+	animation: filter-animation 5s infinite;
+}
+*/
+@keyframes filter-animation {
+	0% {
+		-webkit-filter: hue-rotate(0deg);
+	}
+	100% {
+		-webkit-filter: hue-rotate(360deg);
+	}
 }
 
 body {
@@ -135,8 +192,8 @@ body {
 	outline: none;
 	opacity: 0;
 	box-shadow:
-		-1px -1px 1px darken($color-primary, 5%),
-		1px 1px 1px lighten($color-primary, 5%);
+		inset -1px -1px 1px lighten($color-primary, 5%),
+		inset 1px 1px 1px darken($color-primary, 5%);
 	-webkit-transition: .2s;
 	transition: opacity .2s;
 }
@@ -158,16 +215,23 @@ body {
 	background: lighten($color-primary, 2%);
 	cursor: pointer;
 	box-shadow:
-		-1px -1px 1px lighten($color-primary, 5%),
-		1px 1px 1px darken($color-primary, 5%);
-	-webkit-transition: .2s;
-	transition: opacity .2s;
+		-1px -1px 3px lighten($color-primary, 3%),
+		2px 2px 3px darken($color-primary, 3%),
+		inset -2px -2px 5px darken($color-primary, 8%),
+		inset 2px 2px 5px lighten($color-primary, 8%);
+		-webkit-transition: .1s linear 0s;
+		-moz-transition: .1s linear 0s;
+		-o-transition: .1s linear 0s;
+		transition: .1s linear 0s
 }
 
 #slider::-webkit-slider-thumb:active {
+	background: lighten($color-primary, 1%);
 	box-shadow:
-		-1px -1px 1px darken($color-primary, 5%),
-		1px 1px 1px lighten($color-primary, 5%);
+		-1px -1px 3px lighten($color-primary, 3%),
+		2px 2px 2px darken($color-primary, 3%),
+		inset -2px -2px 5px lighten($color-primary, 5%),
+		inset 2px 2px 5px darken($color-primary, 5%);
 }
 
 #slider::-moz-range-thumb {
