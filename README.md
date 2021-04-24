@@ -13,4 +13,4 @@ Todo,
     I'm pretty sure the clock itself doesn't actually work, should it be GMT or UTC?\
     Make a hint that tells you how to change the offset as currently it's pretty hidden.\
     Color changing abilities? Shouldn't be too hard.\
-    Light mode!\
+    Light mode!
