@@ -37,6 +37,10 @@ p, #slider {
 	text-decoration-thickness: 0.15em;
 }
 
+html {
+	filter: hue-rotate(100deg);
+}
+
 body {
 	background: $color-primary;
 	overflow: hidden; // With zoom we don't need this, but I'm using transform for compatibility reasons.

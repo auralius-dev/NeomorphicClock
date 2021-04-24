@@ -58,7 +58,7 @@ window.addEventListener('load', function() {
         var hash = window.location.hash.slice(1);
         split = hash.split("//");
         sliderElement.value = split[0];
-        customElement.innerHTML = typeof split[1] !== "undefined" ? "Current time for: " + split[1] : "";
+        customElement.innerHTML = typeof split[1] !== "undefined" ? "Current time for: " + decodeURIComponent(split[1]) : "";
     }
     
     hash();
