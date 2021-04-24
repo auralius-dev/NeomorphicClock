@@ -10,10 +10,12 @@ window.addEventListener('load', function() {
     var outputElement = document.getElementById("add");
     var customElement = document.getElementById("customText");
     
+    /*
     sliderElement.onmouseover = function() { // Tooltip function.
         console.log("hi");
     }
-    
+    */
+   
     sliderElement.oninput = function() { slider(); }
     
     function slider() { // Slider function.
