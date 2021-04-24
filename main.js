@@ -54,7 +54,7 @@ window.addEventListener('load', function() {
         dateElement.innerHTML = formattedDate;
     }
     
-    function hash() { // https://codepen.io/jmsessink/pen/WNbBKJB PLEASE LOOK AT THIS PARKER! ADD NICE YELLOW TEXT AS WELL!
+    function hash() {
         var hash = window.location.hash.slice(1);
         split = hash.split("//");
         sliderElement.value = split[0];
