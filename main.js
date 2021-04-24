@@ -2,7 +2,7 @@ window.addEventListener('load', function() {
     var langaugeCode = navigator.languages[0];
     var mtp = 3600000; // Millisecond to hour multiplier.
     var gmt = 0; // GMT offset.
-    var sub = 7 * mtp; // Offset by 7 hours. I'm sure there is a way to not do this?
+    var sub = (new Date().getTimezoneOffset() / 60) * mtp; // Offset by 7 hours. I'm sure there is a way to not do this? Ok, there totally is and this may even be broken in certain ways. Frick!
     var timeElement = document.getElementById('time');
     var dateElement = document.getElementById('date');
     var tooltipElement = document.getElementById('tooltip');
@@ -10,7 +10,7 @@ window.addEventListener('load', function() {
     var outputElement = document.getElementById("add");
     var customElement = document.getElementById("customText");
     
-    sliderElement.hover = function() { // Tooltip function.
+    sliderElement.onmouseover = function() { // Tooltip function.
         console.log("hi");
     }
     
